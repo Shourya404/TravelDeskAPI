@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TravelDeskDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21)));
 });
 
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
@@ -46,9 +46,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp", policy =>
+    options.AddPolicy("AllowAngularApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5000")
+        policy.WithOrigins("http://localhost:4200", "http://localhost:5000")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
@@ -67,7 +67,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowReactApp");
+app.UseCors("AllowAngularApp");
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -79,12 +79,12 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<TravelDeskDbContext>();
     try
     {
-        db.Database.Migrate();
+        DbInitializer.Initialize(db);
     }
     catch (Exception ex)
     {
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while migrating the database.");
+        logger.LogError(ex, "An error occurred while initializing the database.");
     }
 }
 
