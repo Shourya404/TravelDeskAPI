@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using TravelDeskAPI.Data;
 using TravelDeskAPI.Models;
 using TravelDeskAPI.DTOs;
-using BCrypt.Net;
 
 namespace TravelDeskAPI.Services
 {
@@ -135,6 +134,7 @@ namespace TravelDeskAPI.Services
             }
             catch
             {
+                // Return false if verification fails for any reason (e.g. invalid hash format)
                 return false;
             }
         }
