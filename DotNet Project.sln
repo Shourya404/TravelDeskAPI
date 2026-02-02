@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TravelDesk", "TravelDesk", "{D1E57FB8-CE5B-324B-B590-34FE4CD03236}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{A3791997-8FD0-3522-8B2E-02CAF7EF399F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelDeskAPI", "TravelDesk\Backend\TravelDeskAPI\TravelDeskAPI.csproj", "{77F815D2-854D-2D49-379B-9E21DAA2AE29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77F815D2-854D-2D49-379B-9E21DAA2AE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F815D2-854D-2D49-379B-9E21DAA2AE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F815D2-854D-2D49-379B-9E21DAA2AE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F815D2-854D-2D49-379B-9E21DAA2AE29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3791997-8FD0-3522-8B2E-02CAF7EF399F} = {D1E57FB8-CE5B-324B-B590-34FE4CD03236}
+		{77F815D2-854D-2D49-379B-9E21DAA2AE29} = {A3791997-8FD0-3522-8B2E-02CAF7EF399F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32DA8C28-0B3D-44F0-9D60-20E09E26062F}
+	EndGlobalSection
+EndGlobal
